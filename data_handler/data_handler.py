@@ -3,12 +3,12 @@ class DataHandler(object):
     Class responsible for handling of data used for training and testing models
     """
 
-    def __init__(self, path_str, delimiter=',', split_ratio = 0.8):
-        _path_str = path_str
-        _delimiter = delimiter
-        _ratio = split_ratio
-        _train_set = [[], []]
-        _test_set = [[], []]
+    def __init__(self, path_str, delimiter=',', split_ratio=0.8):
+        self._path_str = path_str
+        self._delimiter = delimiter
+        self._ratio = split_ratio
+        self._train_set = [[], []]
+        self._test_set = [[], []]
 
     def load_from_file(self):
         """
@@ -23,9 +23,4 @@ class DataHandler(object):
         Returns training and testing sets as a tuple
         :return: a tuple containing training and testing sets
         """
-        return (self._train_set, self._test_set)
-
-
-
-
-
+        return self._train_set, self._test_set
