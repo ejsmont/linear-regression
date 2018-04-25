@@ -6,12 +6,9 @@ class DataHandler(object):
     def __init__(self, path_str, delimiter=',', split_ratio = 0.8):
         _path_str = path_str
         _delimiter = delimiter
-        _data = [[], []]
-        _train_set = [[], []]
         _ratio = split_ratio
-
-
-
+        _train_set = [[], []]
+        _test_set = [[], []]
 
     def load_from_file(self):
         """
