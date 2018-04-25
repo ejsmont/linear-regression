@@ -7,8 +7,10 @@ class DataHandler(object):
         self._path_str = path_str
         self._delimiter = delimiter
         self._ratio = split_ratio
-        self._train_set = [[], []]
-        self._test_set = [[], []]
+        self._data = []
+        self._size = 0
+        self._train_set = []
+        self._test_set = []
 
     def load_from_file(self):
         """
@@ -16,11 +18,22 @@ class DataHandler(object):
         Throws exception if file cannot be open,
         read or the data is corrupted
         """
-        pass
+        with open(self._path_str) as csv_file:
+            import csv
+            reader = csv.reader(csv_file, delimiter=self._delimiter)
+            self._data = [list(map(float, row)) for row in reader]
+        self._size = len(self._data)
+        self.split_data(self._ratio)
 
-    def get_all_data(self):
+    def split_data(self, ratio):
+        left_size = int(ratio*self._size)
+        self._train_set = self._data[:left_size]
+        self._test_set = self._data[left_size:]
+
+    def get_train_and_test_sets(self):
         """
         Returns training and testing sets as a tuple
         :return: a tuple containing training and testing sets
         """
         return self._train_set, self._test_set
+
