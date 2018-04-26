@@ -20,7 +20,7 @@ class TestDataHandler(TestCase):
         self.assertListEqual([10.0, 20.0, 20.0], self.dataHandler._train_set[0])
         self.assertListEqual([60.0, 60.0, 60.0], self.dataHandler._test_set[0])
         self.assertEqual(5, len(self.dataHandler._train_set))
-        self.assertEqual(5, len(self    .dataHandler._test_set))
+        self.assertEqual(5, len(self.dataHandler._test_set))
 
     def test_get_train_and_test_sets(self):
         train, test = self.dataHandler.get_train_and_test_sets()

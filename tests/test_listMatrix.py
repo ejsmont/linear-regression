@@ -1,5 +1,5 @@
 from unittest import TestCase
-from list_matrix import ListMatrix
+import list_matrix
 
 A = [[1, 2], [3, 4], [5, 6], [7, 8]]
 B = [[1], [1]]
@@ -11,19 +11,18 @@ c_trans = [[1, 4], [2, 5], [3, 6]]
 class TestListMatrix(TestCase):
 
     def test_dim(self):
-        self.assertEqual((4, 2), ListMatrix.dims(A))
-        self.assertEqual((2, 1), ListMatrix.dims(B))
-        self.assertEqual((2, 3), ListMatrix.dims(C))
+        self.assertEqual((4, 2), list_matrix.dims(A))
+        self.assertEqual((2, 1), list_matrix.dims(B))
+        self.assertEqual((2, 3), list_matrix.dims(C))
 
-
-class TestListMatrix(TestCase):
     def test_multiply(self):
-        M = ListMatrix.multiply(A, C)
+        M = list_matrix.multiply(A, C)
         self.assertListEqual(mul_res, M)
-        self.assertEqual((4, 3), ListMatrix.dims(M))
+        self.assertEqual((4, 3), list_matrix.dims(M))
 
-class TestListMatrix(TestCase):
     def test_transpose(self):
-        T = ListMatrix.transpose(C)
+        T = list_matrix.transpose(C)
         self.assertListEqual(c_trans, T)
-        self.assertEqual((3, 2), ListMatrix.dims(T))
+        self.assertEqual((3, 2), list_matrix.dims(T))
+
+
