@@ -27,3 +27,13 @@ class ListMatrix(object):
         b_n, b_m = ListMatrix.dims(b)
         assert a_m == b_n
         return [[sum([a[i][k] * b[k][j] for k in range(a_m)]) for j in range(b_m)] for i in range(a_n)]
+
+    @staticmethod
+    def transpose(a):
+        """
+        Returns a transposed matrix
+        :param a: matrix to be transposed
+        :return: transposed matrix
+        """
+        d_n, d_m = ListMatrix.dims(a)
+        return [[a[i][j] for i in range(d_n)] for j in range(d_m)]
