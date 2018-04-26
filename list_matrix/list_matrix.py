@@ -18,11 +18,12 @@ class ListMatrix(object):
     @staticmethod
     def multiply(a, b):
         """
-        Multiplies two matrices. Return the product.
+        Multiplies two matrices. Returns a product matrix.
         :param a: first operand (matrix)
         :param b: second operand (matrix)
         :return: result of matrix multiplication
         """
-        dims_a = ListMatrix.dims(a)
-        dims_b = ListMatrix.dims(b)
-        assert dims_a[1] == dims_b[0]
+        a_n, a_m = ListMatrix.dims(a)
+        b_n, b_m = ListMatrix.dims(b)
+        assert a_m == b_n
+        return [[sum([a[i][k] * b[k][j] for k in range(a_m)]) for j in range(b_m)] for i in range(a_n)]
