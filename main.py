@@ -7,9 +7,10 @@ if __name__ == '__main__':
     # split in training and testing
     handler.split_data(0.7)
     train, test = handler.get_train_and_test_sets()
-    print(train)
     # train the lin reg model
-    h = LinRegModel.train(train)
+    model = LinRegModel()
+    model.train(train)
+    h = model.get_h()
     print(h)
     # use model to predict on test
     # check correctness

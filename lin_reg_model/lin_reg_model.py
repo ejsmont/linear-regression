@@ -6,8 +6,13 @@ class LinRegModel(object):
     Class responsible for providing linear regression model using least squares modelling.
     """
 
-    @staticmethod
-    def train(data):
+    def __init__(self):
+        self._h = []
+
+    def get_h(self):
+        return self._h
+
+    def train(self, data):
         """
         Trains the model on provided data using least squares matrix manipulation.
         It is expected that data contains both target variable (right most column)
@@ -23,4 +28,4 @@ class LinRegModel(object):
         # find the coefficients using matrix multiplication
         coefficients = list_matrix.multiply(transposed, with_ones)
         # solve
-        return list_matrix.gaussian_elimination(coefficients)
+        self._h = list_matrix.gaussian_elimination(coefficients)
