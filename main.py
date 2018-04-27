@@ -13,5 +13,8 @@ if __name__ == '__main__':
     h = model.get_h()
     print(h)
     # use model to predict on test
+    model.predict(test)
+    p = model.get_predictions()
+    print(p)
     # check correctness
 

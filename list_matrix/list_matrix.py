@@ -1,5 +1,6 @@
 # TODO - refactor and make it a class that keeps the original matrix
 
+
 def multiply(a, b):
     """
     Multiplies two matrices. Returns a product matrix.
@@ -64,11 +65,11 @@ def gaussian_elimination(a):
                     a[k][j] = 0
                 else:
                     a[k][j] += c*a[i][j]
-    x = [0 for _ in range(n)]
+    x = [[0] for _ in range(n)]
     for i in range(n - 1, -1, -1):
-        x[i] = round(a[i][n]/a[i][i], 10)
+        x[i][0] = round(a[i][n]/a[i][i], 10)
         for k in range(i - 1, -1, -1):
-            a[k][n] -= a[k][i]*x[i]
+            a[k][n] -= a[k][i]*x[i][0]
     return x
 
 
