@@ -15,6 +15,11 @@ class TestDataHandler(TestCase):
         self.assertEqual(8, len(self.dataHandler._train_set))
         self.assertEqual(2, len(self.dataHandler._test_set))
 
+    def test_load_from_file_2(self):
+        data_handler = DataHandler("../resources/test_header.csv")
+        data_handler.load_from_file()
+        self.assertEqual([1.0, 2.0], data_handler._data[0])
+
     def test_split_data(self):
         self.dataHandler.split_data(0.5)
         self.assertListEqual([10.0, 20.0, 20.0], self.dataHandler._train_set[0])

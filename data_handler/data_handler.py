@@ -1,3 +1,6 @@
+# TODO - exception handling for reading CSV file
+
+
 class DataHandler(object):
     """
     Class responsible for handling of data used for training and testing models
@@ -20,7 +23,11 @@ class DataHandler(object):
         """
         with open(self._path_str) as csv_file:
             import csv
+            has_header = csv.Sniffer().has_header(csv_file.read(1024))
+            csv_file.seek(0)
             reader = csv.reader(csv_file, delimiter=self._delimiter)
+            if has_header:
+                next(reader)
             self._data = [list(map(float, row)) for row in reader]
         self._size = len(self._data)
         self.split_data(self._ratio)
