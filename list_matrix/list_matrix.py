@@ -1,3 +1,5 @@
+# TODO - refactor and make it a class that keeps the original matrix
+
 def multiply(a, b):
     """
     Multiplies two matrices. Returns a product matrix.
@@ -68,3 +70,25 @@ def gaussian_elimination(a):
         for k in range(i - 1, -1, -1):
             a[k][n] -= a[k][i]*x[i]
     return x
+
+
+def add_ones_row(a):
+    """
+    Adds row of ones as a first row
+    :param a: matrix to which copy ones row will be added
+    :return: copy of matrix a with ones row added
+    """
+    _, d_m = dims(a)
+    return [[1 for _ in range(d_m)]] + a
+
+
+def add_ones_column(a):
+    """
+    Adds column of ones as a first column
+    :type a: list
+    :param a: matrix to which copy ones column will be added
+    :return: copy of matrix a with ones column added
+    """
+    d_n, _ = dims(a)
+    return [[1] + row for row in a]
+

@@ -10,6 +10,9 @@ c_trans = [[1, 4], [2, 5], [3, 6]]
 XY = [[2, 1, -1, 8], [-3, -1, 2, -11], [-2, 1, 2, -3]]
 S = [2, 3, -1]
 
+c_with_ones_row = [[1, 1, 1], [1, 2, 3], [4, 5, 6]]
+c_with_ones_column = [[1, 1, 2, 3], [1, 4, 5, 6]]
+
 
 class TestListMatrix(TestCase):
 
@@ -30,3 +33,9 @@ class TestListMatrix(TestCase):
 
     def test_gaussian(self):
         self.assertListEqual(S, list_matrix.gaussian_elimination(XY))
+
+    def test_add_ones_row(self):
+        self.assertListEqual(c_with_ones_row, list_matrix.add_ones_row(C))
+
+    def test_add_ones_column(self):
+        self.assertListEqual(c_with_ones_column, list_matrix.add_ones_column(C))
