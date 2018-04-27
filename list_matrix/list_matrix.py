@@ -41,10 +41,10 @@ def gaussian_elimination(a):
     :param a: a matrix containing system of linear equations of dimensions n, n+1
     :return: a list containing solution for given system of linear equations
     """
-    import copy
-    a = copy.deepcopy(a)
     n, d_m = dims(a)
     assert n + 1 == d_m
+    import copy
+    a = copy.deepcopy(a)
     for i in range(n):
         max_el = abs(a[i][i])
         max_row = i
