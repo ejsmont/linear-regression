@@ -26,6 +26,10 @@ class DataHandler(object):
         self.split_data(self._ratio)
 
     def split_data(self, ratio):
+        """
+        Splits data set into two sets using given ratio
+        :param ratio: float specifying the ratio
+        """
         left_size = int(ratio*self._size)
         self._train_set = self._data[:left_size]
         self._test_set = self._data[left_size:]
@@ -36,4 +40,3 @@ class DataHandler(object):
         :return: a tuple containing training and testing sets
         """
         return self._train_set, self._test_set
-
