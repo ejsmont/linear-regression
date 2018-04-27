@@ -30,4 +30,3 @@ class TestListMatrix(TestCase):
 
     def test_gaussian(self):
         self.assertListEqual(S, list_matrix.gaussian_elimination(XY))
-
