@@ -7,6 +7,9 @@ C = [[1, 2, 3], [4, 5, 6]]
 mul_res = [[9, 12, 15], [19, 26, 33], [29, 40, 51], [39, 54, 69]]
 c_trans = [[1, 4], [2, 5], [3, 6]]
 
+XY = [[2, 1, -1, 8], [-3, -1, 2, -11], [-2, 1, 2, -3]]
+S = [2, 3, -1]
+
 
 class TestListMatrix(TestCase):
 
@@ -25,4 +28,6 @@ class TestListMatrix(TestCase):
         self.assertListEqual(c_trans, T)
         self.assertEqual((3, 2), list_matrix.dims(T))
 
+    def test_gaussian(self):
+        self.assertListEqual(S, list_matrix.gaussian_elimination(XY))
 
