@@ -13,6 +13,8 @@ S = [2, 3, -1]
 c_with_ones_row = [[1, 1, 1], [1, 2, 3], [4, 5, 6]]
 c_with_ones_column = [[1, 1, 2, 3], [1, 4, 5, 6]]
 
+c_stripped = [[1, 2], [4, 5]]
+
 
 class TestListMatrix(TestCase):
 
@@ -39,3 +41,6 @@ class TestListMatrix(TestCase):
 
     def test_add_ones_column(self):
         self.assertListEqual(c_with_ones_column, list_matrix.add_ones_column(C))
+
+    def test_remove_last_column(self):
+        self.assertListEqual(c_stripped, list_matrix.remove_last_column(C))

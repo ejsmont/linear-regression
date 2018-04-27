@@ -92,3 +92,11 @@ def add_ones_column(a):
     d_n, _ = dims(a)
     return [[1] + row for row in a]
 
+
+def remove_last_column(a):
+    """
+    Returns copy of input matrix with the last column removed
+    :param a: matrix to be modified
+    :return: modified matrix
+    """
+    return [row[:-1] for row in a]
